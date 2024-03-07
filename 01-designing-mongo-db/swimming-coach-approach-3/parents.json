@@ -1,0 +1,26 @@
+[
+    {
+        "_id":1001,
+        "name":"Jon Wick",
+        "email":"jonwick@asd.com",
+        "address": {
+            "streetName": "Yishun Ring Road",
+            "blockName": "666",
+            "unitNumber": "10-01",
+            "postalCode": "760666"
+        },
+        "children": [2001]
+    },
+    {
+        "_id":1002,
+        "name":"Phua Chua Kang",
+        "email":"phuachuakang@sg.com",
+        "address": {
+            "streetName": "Yishun Ring Road",
+            "blockName": "665",
+            "unitNumber": "10-01",
+            "postalCode": "760665"   
+    },
+    "children":[2002,2003]
+}
+]

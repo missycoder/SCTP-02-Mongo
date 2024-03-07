@@ -1,0 +1,36 @@
+[
+    {
+        "_id":2001,
+        "name":"Mary Sue",
+        "dob":"2020-01-01",
+        "swimmingLevel":"beginner",
+        "sessions":[7222, 7223]
+      
+    },
+    {
+        "_id":2002,
+        "name":"Daffy Duck",
+        "dob":"2020-01-01",
+        "swimmingLevel":"beginner",
+        "sessions": [7223]
+    },
+    {
+        "_id":2003,
+        "name":"Mickey Mouse",
+        "dob":"2020-01-01",
+        "swimmingLevel":"beginner",
+        "sessions":[
+            {
+                "_id":7223,
+                "datetime": "2024-03-03 10:00",
+                "venue_id": 9002,
+                "payment":{
+                    "_id":6111,
+                    "datetime":"2024-03-02 10:00",
+                    "amount":80,
+                    "mode":"cc"
+                }
+            }
+        ]
+    }
+]

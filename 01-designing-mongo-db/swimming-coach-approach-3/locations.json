@@ -1,0 +1,14 @@
+[
+    {
+        "_id":9001,
+        "name":"Yishun Swimming Complex",
+        "address":"Yishun Ave 4"
+    },
+    {
+        "_id":9002,
+        "name":"Boon Lay Swimming Complex",
+        "address":"Boon Lay Way"
+    }
+
+
+]
