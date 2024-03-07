@@ -1,0 +1,20 @@
+[
+{
+    "id": 3003,
+    "name": "Eddard Stark",
+    "students": [
+        {
+            "id": 3003,
+            "name": "Jon Snow",
+            "dob": "1999-01-01",
+            "swimmingLevel": "beginner",
+            "sessions":[
+                {
+                    "date": "01-01-2024 10:00",
+                    "venue": "Yishun Swimming Complex"
+                }
+            ]
+        }
+    ]
+}
+]
