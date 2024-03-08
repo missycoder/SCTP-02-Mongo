@@ -89,7 +89,24 @@ async function main() {
         try {
             const description = req.body.description;
             const food = req.body.food;
-            const datetime = new Date(req.body.datetime) || new Date();
+            const datetime = req.body.datetime ? new Date(req.body.datetime): new Date();
+            
+            if (!description) {
+                res.status(400);
+                res.json({
+                    'error':'A description must be provided'
+                });
+                return;
+            }
+
+            if (!food || !Array.isArray(food)) {
+                res.status(400);
+                res.json({
+                    'error':'Food must be provided and must be an array'
+                })
+            }
+            
+            // insert a new document based on what the client has sent
             const result = await db.collection("sightings").insertOne({
                 'description': description,
                 'food': food,
@@ -109,23 +126,39 @@ async function main() {
     })
 
     app.put('/food-sighting/:id', async function(req,res){
-        const description = req.body.description;
-        const food = req.body.food;
-        const datetime = new Date(req.body.datetime) || new Date();
-
-        const result = await db.collection("sightings").updateOne({
-            '_id': new ObjectId(req.params.id)
-        },{
-            '$set': {
-                'description': description,
-                'food': food,
-                'datetime': datetime
+        try {
+            const description = req.body.description;
+            const food = req.body.food;
+            const datetime = req.body.datetime ?  new Date(req.body.datetime) : new Date();
+    
+            if (!description || !food || !Array.isArray(food)) {
+                res.status(400); // bad request -- the client didn't follow the specifications for our endpoint
+                res.json({
+                    'error': 'Invalid data provided'
+                });
+                return;
             }
-        })
-
-        res.json({
-            'result': result
-        })
+    
+            const result = await db.collection("sightings").updateOne({
+                '_id': new ObjectId(req.params.id)
+            },{
+                '$set': {
+                    'description': description,
+                    'food': food,
+                    'datetime': datetime
+                }
+            })
+    
+            res.json({
+                'result': result
+            })
+        } catch (e) {
+            res.status(500);
+            res.json({
+                'error':'Internal Server Error'
+            })
+        }
+       
     })
 
     app.delete('/food-sighting/:id', async function(req,res){
